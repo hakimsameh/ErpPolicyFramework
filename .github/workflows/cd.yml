@@ -1,0 +1,107 @@
+# CD — Build, Test, Pack & Release
+# Runs when a release is published or a version tag is pushed (e.g. v1.0.0)
+
+name: CD
+
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-test-pack:
+    name: Build, Test & Pack
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Set version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            TAG="${{ github.event.release.tag_name }}"
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+          fi
+          # Strip leading 'v' for NuGet (e.g. v1.0.0 -> 1.0.0)
+          VERSION="${TAG#v}"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      - name: Restore
+        run: dotnet restore ErpPolicyFramework.sln
+
+      - name: Build
+        run: dotnet build ErpPolicyFramework.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test ErpPolicyFramework.sln --configuration Release --no-build --verbosity normal
+
+      - name: Pack NuGet
+        run: |
+          for proj in src/PolicyFramework.Core/PolicyFramework.Core.csproj \
+                      src/PolicyFramework.Modules.Inventory/PolicyFramework.Modules.Inventory.csproj \
+                      src/PolicyFramework.Modules.Posting/PolicyFramework.Modules.Posting.csproj \
+                      src/PolicyFramework.Modules.Accounting/PolicyFramework.Modules.Accounting.csproj \
+                      src/PolicyFramework.Modules.Sales/PolicyFramework.Modules.Sales.csproj; do
+            dotnet pack "$proj" -c Release --no-build -o ./artifacts \
+              -p:PackageVersion=${{ steps.version.outputs.VERSION }} \
+              -p:Version=${{ steps.version.outputs.VERSION }}
+          done
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: ./artifacts/*.nupkg
+
+  # Publish to NuGet.org (requires NUGET_API_KEY secret in repo Settings → Secrets)
+  publish-nuget:
+    name: Publish to NuGet
+    runs-on: ubuntu-latest
+    needs: build-test-pack
+    if: secrets.NUGET_API_KEY != ''
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: nuget-packages
+
+      - name: Publish to NuGet.org
+        run: dotnet nuget push "*.nupkg" \
+          --api-key "${{ secrets.NUGET_API_KEY }}" \
+          --source "https://api.nuget.org/v3/index.json" \
+          --skip-duplicate
+
+  # Attach NuGet packages to GitHub Release (only when release is published, not on tag-only push)
+  attach-to-release:
+    name: Attach to Release
+    runs-on: ubuntu-latest
+    needs: build-test-pack
+    if: github.event_name == 'release' && github.event.release != null
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: nuget-packages
+
+      - name: Upload to Release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" *.nupkg

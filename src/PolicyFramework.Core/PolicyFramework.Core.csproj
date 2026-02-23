@@ -7,12 +7,25 @@
     <LangVersion>12</LangVersion>
     <RootNamespace>PolicyFramework.Core</RootNamespace>
     <AssemblyName>PolicyFramework.Core</AssemblyName>
-    <Description>Generic ERP Policy Framework — Core Abstractions and Execution Engine</Description>
-    <Authors>Enterprise Architecture Team</Authors>
+
+    <!-- NuGet package -->
+    <PackageId>PolicyFramework.Core</PackageId>
+    <Description>Generic ERP Policy Framework — Core Abstractions and Execution Engine. Run business-rule pipelines before saving data. Pluggable policies for inventory, posting, accounting, and more.</Description>
+    <PackageTags>erp;policy;validation;business-rules;ddd;clean-architecture;net8</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/hakimsameh/ErpPolicyFramework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hakimsameh/ErpPolicyFramework</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>master</RepositoryBranch>
+
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />

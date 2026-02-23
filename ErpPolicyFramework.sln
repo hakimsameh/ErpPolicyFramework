@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{B15B6B74-4
 		docs\API_AT_A_GLANCE.md = docs\API_AT_A_GLANCE.md
 		docs\COMMON_TASKS.md = docs\COMMON_TASKS.md
 		docs\GETTING_STARTED.md = docs\GETTING_STARTED.md
+		docs\CI_CD.md = docs\CI_CD.md
 		docs\PIPELINE_GUIDE.md = docs\PIPELINE_GUIDE.md
 		docs\QUICK_REFERENCE.md = docs\QUICK_REFERENCE.md
 	EndProjectSection

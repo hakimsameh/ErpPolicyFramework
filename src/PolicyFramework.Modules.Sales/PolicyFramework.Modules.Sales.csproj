@@ -8,6 +8,10 @@
     <RootNamespace>PolicyFramework.Modules.Sales</RootNamespace>
     <AssemblyName>PolicyFramework.Modules.Sales</AssemblyName>
     <Description>ERP Policy Framework — Sales Module (Invoice and Return Policies)</Description>
+
+    <!-- NuGet package -->
+    <PackageId>SamSoft.PolicyFramework.Modules.Sales</PackageId>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

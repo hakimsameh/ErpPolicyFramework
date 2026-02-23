@@ -235,3 +235,16 @@ public class CreatePoCommandHandler(IPolicyExecutor<ProcurementContext> policies
 | Warning  | No               | Advisory conditions (require acknowledgement)   |
 | Error    | **Yes**          | Hard business rule violation                    |
 | Critical | **Yes**          | System failure, infrastructure error            |
+
+---
+
+## CI/CD
+
+| Workflow | Trigger | What it does |
+|----------|---------|--------------|
+| **CI** | Push / PR to `main` | Build + test |
+| **CD** | Release published or tag `v*` pushed | Build, test, pack NuGet, upload artifacts; optionally publish to NuGet.org |
+
+**To publish to NuGet.org:** Add `NUGET_API_KEY` in repo **Settings → Secrets** (see [docs/CI_CD.md](docs/CI_CD.md)). CD runs on tag push (`v1.0.0`) or release publish.
+
+**Repository:** [https://github.com/hakimsameh/ErpPolicyFramework](https://github.com/hakimsameh/ErpPolicyFramework)

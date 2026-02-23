@@ -7,5 +7,15 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+    <!-- NuGet package metadata (override Version/PackageVersion in CI) -->
+    <Version Condition="'$(Version)' == ''">1.0.0</Version>
+    <Authors>SamSoft</Authors>
+    <PackageProjectUrl>https://github.com/hakimsameh/ErpPolicyFramework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hakimsameh/ErpPolicyFramework</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>erp;policy;validation;business-rules;ddd;net8</PackageTags>
+    <PackageReleaseNotes>See https://github.com/hakimsameh/ErpPolicyFramework/releases</PackageReleaseNotes>
   </PropertyGroup>
 </Project>
