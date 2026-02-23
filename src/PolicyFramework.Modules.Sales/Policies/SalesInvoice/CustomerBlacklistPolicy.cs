@@ -7,7 +7,9 @@ namespace PolicyFramework.Modules.Sales.Policies.SalesInvoice;
 /// </summary>
 public sealed class CustomerBlacklistPolicy : PolicyBase<SalesInvoiceContext>
 {
-    public override string PolicyName => "Sales.Invoice.CustomerBlacklist";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Sales.Invoice.CustomerBlacklist";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.HardGateMin + 1;
 
     public override async Task<PolicyResult> EvaluateAsync(

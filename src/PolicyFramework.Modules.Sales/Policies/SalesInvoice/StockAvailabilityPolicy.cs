@@ -7,7 +7,9 @@ namespace PolicyFramework.Modules.Sales.Policies.SalesInvoice;
 /// </summary>
 public sealed class StockAvailabilityPolicy : PolicyBase<SalesInvoiceContext>
 {
-    public override string PolicyName => "Sales.Invoice.StockAvailability";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Sales.Invoice.StockAvailability";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin + 5;
 
     public override async Task<PolicyResult> EvaluateAsync(

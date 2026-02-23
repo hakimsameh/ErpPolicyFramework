@@ -34,7 +34,9 @@ public sealed class FutureDatePostingPolicy : PolicyBase<PostingContext>
         _maxFutureDays = maxFutureDays;
     }
 
-    public override string PolicyName => "Posting.FutureDatePosting";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Posting.FutureDatePosting";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.HardGateMin + 4; // = 5
 
     public override Task<PolicyResult> EvaluateAsync(

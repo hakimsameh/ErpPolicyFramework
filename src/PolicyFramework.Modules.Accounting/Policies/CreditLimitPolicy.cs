@@ -22,7 +22,9 @@ public sealed class CreditLimitPolicy : PolicyBase<AccountAssignmentContext>
         _warningThreshold = warningThreshold;
     }
 
-    public override string PolicyName => "Accounting.CreditLimit";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Accounting.CreditLimit";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin + 5; // = 15
 
     public override async Task<PolicyResult> EvaluateAsync(

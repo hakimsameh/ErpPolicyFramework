@@ -160,9 +160,16 @@ catch (PolicyViolationException ex)
 **Goal:** Bypass specific policies for a single execution (e.g. admin override).
 
 ```csharp
+// Use policy Name constants — refactor-safe (no magic strings)
+// using PolicyFramework.Modules.Inventory.Policies;
+// using PolicyFramework.Modules.Posting.Policies;
 var result = await _policies.ExecuteAsync(context, new PolicyExecutionOptions
 {
-    BypassedPolicies = new HashSet<string> { "Inventory.NegativeStock", "Posting.BalancedEntry" }
+    BypassedPolicies = new HashSet<string>
+    {
+        NegativeStockPolicy.Name,
+        BalancedEntryPolicy.Name
+    }
 });
 ```
 
@@ -184,7 +191,9 @@ var result = await _policies.ExecuteAsync(context, new PolicyExecutionOptions
 ```csharp
 public sealed class MinimumOrderValuePolicy : PolicyBase<OrderContext>
 {
-    public override string PolicyName => "Order.MinimumValue";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Order.MinimumValue";
+    public override string PolicyName => Name;
     public override int Order => 15;  // Business Rule tier
 
     public override Task<PolicyResult> EvaluateAsync(
@@ -197,7 +206,7 @@ public sealed class MinimumOrderValuePolicy : PolicyBase<OrderContext>
 }
 ```
 
-No other code changes — it's auto-discovered.
+Exposing `Name` lets callers use `MinimumOrderValuePolicy.Name` in `BypassedPolicies` — refactor-safe.
 
 ---
 

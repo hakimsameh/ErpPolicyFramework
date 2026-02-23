@@ -8,7 +8,9 @@ namespace PolicyFramework.Modules.Sales.Policies.SalesInvoice;
 /// </summary>
 public sealed class CustomerCreditLimitPolicy : PolicyBase<SalesInvoiceContext>
 {
-    public override string PolicyName => "Sales.Invoice.CreditLimit";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Sales.Invoice.CreditLimit";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin;
 
     public override async Task<PolicyResult> EvaluateAsync(

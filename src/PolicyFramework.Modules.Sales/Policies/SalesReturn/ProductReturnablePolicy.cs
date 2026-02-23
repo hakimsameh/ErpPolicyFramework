@@ -7,7 +7,9 @@ namespace PolicyFramework.Modules.Sales.Policies.SalesReturn;
 /// </summary>
 public sealed class ProductReturnablePolicy : PolicyBase<SalesReturnContext>
 {
-    public override string PolicyName => "Sales.Return.ProductReturnable";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Sales.Return.ProductReturnable";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin + 5;
 
     public override async Task<PolicyResult> EvaluateAsync(

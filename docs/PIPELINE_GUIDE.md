@@ -169,19 +169,25 @@ result.ThrowIfFailed();  // throws PolicyViolationException if IsFailure
 
 **Behaviour:** Skips named policies for this execution only.
 
+**Use policy `Name` constants** — type-safe, refactor-safe (no magic strings):
+
 ```csharp
+using PolicyFramework.Modules.Inventory.Policies;
+
 var result = await executor.ExecuteAsync(context, new PolicyExecutionOptions
 {
     BypassedPolicies = new HashSet<string>
     {
-        "Inventory.NegativeStock",
-        "Inventory.AdjustmentReasonMandatory"
+        NegativeStockPolicy.Name,
+        AdjustmentReasonMandatoryPolicy.Name
     }
 });
 
 // Those policies never run; others (MaxStockLevel, ReorderPointAlert) still run
 Console.WriteLine($"Policies run: {result.PoliciesEvaluated}");  // fewer
 ```
+
+Each policy defines `public const string Name` (e.g. `NegativeStockPolicy.Name` = `"Inventory.NegativeStock"`).
 
 **Use when:** Admin override, emergency bypass, or feature-specific exclusion.
 
@@ -234,10 +240,11 @@ var result = await executor.ExecuteAsync(context, new PolicyExecutionOptions
     ThrowOnFailure = true
 });
 
-// Bypass + CollectAll: skip some, collect rest
+// Bypass + CollectAll: skip some, collect rest (use policy Name)
+// using PolicyFramework.Modules.Inventory.Policies;
 var result = await executor.ExecuteAsync(context, new PolicyExecutionOptions
 {
-    BypassedPolicies = new HashSet<string> { "Inventory.MaxStockLevel" },
+    BypassedPolicies = new HashSet<string> { MaxStockLevelPolicy.Name },
     Strategy         = ExecutionStrategy.CollectAll
 });
 
@@ -332,7 +339,7 @@ var returnResult   = await returnExecutor.ExecuteAsync(returnContext);
 | `ThrowOnFailure` | `bool` | `false` | Throw `PolicyViolationException` when pipeline fails |
 | `ParallelizeSameOrderTier` | `bool` | `false` | Run same-Order policies concurrently |
 | `MaxDegreeOfParallelism` | `int` | `Environment.ProcessorCount` | Max concurrency when parallelizing |
-| `BypassedPolicies` | `IReadOnlySet<string>?` | `null` | Policy names to skip (e.g. `"Inventory.NegativeStock"`) |
+| `BypassedPolicies` | `IReadOnlySet<string>?` | `null` | Policy names to skip — use `PolicyName.Name` (e.g. `NegativeStockPolicy.Name`) |
 
 **Execution flow summary:**
 

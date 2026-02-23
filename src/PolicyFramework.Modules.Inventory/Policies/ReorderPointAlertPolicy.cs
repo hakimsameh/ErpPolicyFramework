@@ -15,7 +15,9 @@ namespace PolicyFramework.Modules.Inventory.Policies;
 /// </summary>
 public sealed class ReorderPointAlertPolicy : PolicyBase<InventoryAdjustmentContext>
 {
-    public override string PolicyName => "Inventory.ReorderPointAlert";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Inventory.ReorderPointAlert";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin + 20; // = 30
 
     public override async Task<PolicyResult> EvaluateAsync(

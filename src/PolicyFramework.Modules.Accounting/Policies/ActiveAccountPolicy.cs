@@ -14,7 +14,9 @@ namespace PolicyFramework.Modules.Accounting.Policies;
 /// </summary>
 public sealed class ActiveAccountPolicy : PolicyBase<AccountAssignmentContext>
 {
-    public override string PolicyName => "Accounting.ActiveAccount";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Accounting.ActiveAccount";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.HardGateMin; // = 1
 
     public override Task<PolicyResult> EvaluateAsync(

@@ -12,7 +12,9 @@ namespace PolicyFramework.Modules.Inventory.Policies;
 /// </summary>
 public sealed class NegativeStockPolicy : PolicyBase<InventoryAdjustmentContext>
 {
-    public override string PolicyName => "Inventory.NegativeStock";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Inventory.NegativeStock";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin; // = 10
 
     public override async Task<PolicyResult> EvaluateAsync(

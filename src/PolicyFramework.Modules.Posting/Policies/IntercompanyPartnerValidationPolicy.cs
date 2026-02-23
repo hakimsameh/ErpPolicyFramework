@@ -16,7 +16,9 @@ namespace PolicyFramework.Modules.Posting.Policies;
 /// </summary>
 public sealed class IntercompanyPartnerValidationPolicy : PolicyBase<PostingContext>
 {
-    public override string PolicyName => "Posting.IntercompanyPartnerValidation";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Posting.IntercompanyPartnerValidation";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin; // = 10
 
     public override Task<PolicyResult> EvaluateAsync(

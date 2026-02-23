@@ -13,7 +13,9 @@ namespace PolicyFramework.Modules.Accounting.Policies;
 /// </summary>
 public sealed class CostCenterMandatoryPolicy : PolicyBase<AccountAssignmentContext>
 {
-    public override string PolicyName => "Accounting.CostCenterMandatory";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Accounting.CostCenterMandatory";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin; // = 10
 
     public override Task<PolicyResult> EvaluateAsync(

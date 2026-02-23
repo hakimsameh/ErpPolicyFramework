@@ -40,10 +40,11 @@ var result = await _policies.ExecuteAsync(context, new PolicyExecutionOptions
     ThrowOnFailure = true  // throws PolicyViolationException if any blocking violation
 });
 
-// Skip specific policies for this run
+// Skip specific policies (use policy Name constant — refactor-safe)
+// using PolicyFramework.Modules.Inventory.Policies;
 var result = await _policies.ExecuteAsync(context, new PolicyExecutionOptions
 {
-    BypassedPolicies = new HashSet<string> { "Inventory.NegativeStock" }
+    BypassedPolicies = new HashSet<string> { NegativeStockPolicy.Name }
 });
 
 // Run same-order policies in parallel (for performance)

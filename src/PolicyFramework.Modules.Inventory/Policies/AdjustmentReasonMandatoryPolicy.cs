@@ -21,7 +21,9 @@ public sealed class AdjustmentReasonMandatoryPolicy : PolicyBase<InventoryAdjust
         _threshold = threshold;
     }
 
-    public override string PolicyName => "Inventory.AdjustmentReasonMandatory";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Inventory.AdjustmentReasonMandatory";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.HardGateMin + 4; // = 5
 
     public override Task<PolicyResult> EvaluateAsync(

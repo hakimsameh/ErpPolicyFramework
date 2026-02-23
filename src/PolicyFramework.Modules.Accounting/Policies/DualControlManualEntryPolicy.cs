@@ -27,7 +27,9 @@ public sealed class DualControlManualEntryPolicy : PolicyBase<AccountAssignmentC
             AccountType.Equity
         };
 
-    public override string PolicyName => "Accounting.DualControlManualEntry";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Accounting.DualControlManualEntry";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.BusinessRuleMin + 10; // = 20
 
     public override Task<PolicyResult> EvaluateAsync(

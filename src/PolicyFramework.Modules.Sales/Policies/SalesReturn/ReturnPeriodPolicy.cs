@@ -7,7 +7,9 @@ namespace PolicyFramework.Modules.Sales.Policies.SalesReturn;
 /// </summary>
 public sealed class ReturnPeriodPolicy : PolicyBase<SalesReturnContext>
 {
-    public override string PolicyName => "Sales.Return.ReturnPeriod";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Sales.Return.ReturnPeriod";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.HardGateMin + 2;
 
     public override Task<PolicyResult> EvaluateAsync(

@@ -17,7 +17,9 @@ public sealed class BalancedEntryPolicy : PolicyBase<PostingContext>
     /// <summary>Maximum allowable imbalance due to rounding. 0.01 currency unit.</summary>
     private const decimal BalanceTolerance = 0.01m;
 
-    public override string PolicyName => "Posting.BalancedEntry";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Posting.BalancedEntry";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.HardGateMin; // = 1
 
     public override Task<PolicyResult> EvaluateAsync(

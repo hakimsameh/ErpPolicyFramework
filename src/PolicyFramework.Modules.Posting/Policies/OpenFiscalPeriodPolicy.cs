@@ -15,7 +15,9 @@ namespace PolicyFramework.Modules.Posting.Policies;
 /// </summary>
 public sealed class OpenFiscalPeriodPolicy : PolicyBase<PostingContext>
 {
-    public override string PolicyName => "Posting.OpenFiscalPeriod";
+    /// <summary>Policy name for bypass/config — use instead of hardcoded string.</summary>
+    public const string Name = "Posting.OpenFiscalPeriod";
+    public override string PolicyName => Name;
     public override int Order => PolicyOrderingConventions.HardGateMin + 1; // = 2
 
     public override async Task<PolicyResult> EvaluateAsync(
