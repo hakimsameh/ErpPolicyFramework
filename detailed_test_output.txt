@@ -1,0 +1,353 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  PolicyFramework.Core -> E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\src\PolicyFramework.Core\bin\Debug\net8.0\PolicyFramework.Core.dll
+  PolicyFramework.Modules.Inventory -> E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\src\PolicyFramework.Modules.Inventory\bin\Debug\net8.0\PolicyFramework.Modules.Inventory.dll
+  PolicyFramework.Modules.Posting -> E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\src\PolicyFramework.Modules.Posting\bin\Debug\net8.0\PolicyFramework.Modules.Posting.dll
+  PolicyFramework.Modules.Accounting -> E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\src\PolicyFramework.Modules.Accounting\bin\Debug\net8.0\PolicyFramework.Modules.Accounting.dll
+  PolicyFramework.Tests -> E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\bin\Debug\net8.0\PolicyFramework.Tests.dll
+Test run for E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\bin\Debug\net8.0\PolicyFramework.Tests.dll (.NETCoreApp,Version=v8.0)
+VSTest version 18.0.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\bin\Debug\net8.0\PolicyFramework.Tests.dll
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.7+8f2703126a (64-bit .NET 8.0.24)
+[xUnit.net 00:00:00.17]   Discovering: PolicyFramework.Tests
+[xUnit.net 00:00:00.30]   Discovered:  PolicyFramework.Tests
+[xUnit.net 00:00:00.31]   Starting:    PolicyFramework.Tests
+  Passed PolicyFramework.Tests.Posting.FutureDatePostingPolicyTests.EvaluateAsync_PastDate_Passes [10 ms]
+  Passed PolicyFramework.Tests.Inventory.MaxStockLevelPolicyTests.EvaluateAsync_ResultingStockBelowMax_Passes [14 ms]
+  Passed PolicyFramework.Tests.Accounting.ActiveAccountPolicyTests.Order_IsLowestPossible [11 ms]
+  Passed PolicyFramework.Tests.Posting.FutureDatePostingPolicyTests.Constructor_NegativeDays_Throws [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.FutureDatePostingPolicyTests.EvaluateAsync_WithinHorizon_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.OpenFiscalPeriodPolicyTests.EvaluateAsync_ClosedPeriod_ReturnsError [17 ms]
+  Passed PolicyFramework.Tests.Accounting.ActiveAccountPolicyTests.EvaluateAsync_BlockedAccount_ReturnsError [2 ms]
+  Passed PolicyFramework.Tests.Accounting.CreditLimitPolicyTests.EvaluateAsync_ExceedingLimit_ReturnsError [17 ms]
+  Passed PolicyFramework.Tests.Inventory.MaxStockLevelPolicyTests.EvaluateAsync_ResultingStockExceedsMax_EmitsWarning [3 ms]
+  Passed PolicyFramework.Tests.Accounting.DualControlManualEntryPolicyTests.EvaluateAsync_ManualEntryToSensitiveAccount_EmitsWarning(type: Liability) [22 ms]
+  Passed PolicyFramework.Tests.Accounting.DualControlManualEntryPolicyTests.EvaluateAsync_ManualEntryToSensitiveAccount_EmitsWarning(type: Revenue) [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.DualControlManualEntryPolicyTests.EvaluateAsync_ManualEntryToSensitiveAccount_EmitsWarning(type: Equity) [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.CreditLimitPolicyTests.EvaluateAsync_WellUnderLimit_Passes [1 ms]
+  Passed PolicyFramework.Tests.Inventory.MaxStockLevelPolicyTests.EvaluateAsync_ZeroMaxStockLevel_IsIgnored [1 ms]
+  Passed PolicyFramework.Tests.Accounting.DualControlManualEntryPolicyTests.EvaluateAsync_NonManualEntry_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.DualControlManualEntryPolicyTests.EvaluateAsync_ManualEntryToNonSensitiveAccount_Passes(type: Expense) [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.CreditLimitPolicyTests.EvaluateAsync_ExactlyAtLimit_Passes [1 ms]
+  Passed PolicyFramework.Tests.Accounting.DualControlManualEntryPolicyTests.EvaluateAsync_ManualEntryToNonSensitiveAccount_Passes(type: Asset) [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.CreditLimitPolicyTests.EvaluateAsync_Above90PercentUtilisation_EmitsWarning [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.CreditLimitPolicyTests.EvaluateAsync_NoCreditLimitConfigured_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.CreditLimitPolicyTests.EvaluateAsync_CustomThreshold_Respected(threshold: 0.75, balance: 80000, limit: 100000, amount: 10000) [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_VariousNegativeScenarios_AllFail(current: 0.001, adjustment: -0.002) [3 ms]
+  Passed PolicyFramework.Tests.Inventory.ReorderPointAlertPolicyTests.EvaluateAsync_AlreadyBelowReorderPoint_DoesNotRepeatAlert [3 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_VariousNegativeScenarios_AllFail(current: 0, adjustment: -1) [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_VariousNegativeScenarios_AllFail(current: 100, adjustment: -101) [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.ReorderPointAlertPolicyTests.EvaluateAsync_StockStaysAboveReorderPoint_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_WhenResultingStockIsPositive_ReturnsSuccess [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.ReorderPointAlertPolicyTests.EvaluateAsync_ZeroReorderPoint_IsIgnored [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.ActiveAccountPolicyTests.EvaluateAsync_Violation_HasAccountCodeFieldReference [11 ms]
+  Passed PolicyFramework.Tests.Inventory.ReorderPointAlertPolicyTests.EvaluateAsync_StockCrossesReorderPoint_EmitsWarning [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.ActiveAccountPolicyTests.EvaluateAsync_ActiveAccount_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_Violation_ContainsResultingStockInMetadata [2 ms]
+  Passed PolicyFramework.Tests.Accounting.CreditLimitPolicyTests.EvaluateAsync_ExceedingLimit_MetadataContainsOverage [6 ms]
+  Passed PolicyFramework.Tests.Accounting.ActiveAccountPolicyTests.EvaluateAsync_InactiveAccount_ReturnsError [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_Violation_HasErrorSeverity [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_WhenResultingStockIsExactlyZero_ReturnsSuccess [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.OpenFiscalPeriodPolicyTests.EvaluateAsync_ClosingPeriod_ReturnsWarning_AndStillPasses [13 ms]
+  Passed PolicyFramework.Tests.Inventory.AdjustmentReasonMandatoryPolicyTests.EvaluateAsync_LargeAdjustmentWithoutReason_Fails [1 ms]
+  Passed PolicyFramework.Tests.Inventory.AdjustmentReasonMandatoryPolicyTests.EvaluateAsync_LargeAdjustmentWithReason_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.Order_IsInBusinessRuleTier [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.OpenFiscalPeriodPolicyTests.EvaluateAsync_LockedPeriod_ReturnsError [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.IsEnabled_DefaultsToTrue [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.IntercompanyPartnerValidationPolicyTests.EvaluateAsync_NonIntercompanyDocument_Passes [1 ms]
+  Passed PolicyFramework.Tests.Inventory.AdjustmentReasonMandatoryPolicyTests.EvaluateAsync_WhitespaceOnlyReason_Fails [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_Violation_HasCorrectFieldReference [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.OpenFiscalPeriodPolicyTests.EvaluateAsync_OpenPeriod_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.IntercompanyPartnerValidationPolicyTests.EvaluateAsync_IntercompanyWithValidPartner_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.AdjustmentReasonMandatoryPolicyTests.EvaluateAsync_SmallAdjustmentWithoutReason_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.EvaluateAsync_WhenResultingStockIsNegative_ReturnsFailure [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.AdjustmentReasonMandatoryPolicyTests.Order_IsInHardGateTier [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.FutureDatePostingPolicyTests.EvaluateAsync_BeyondHorizon_Fails [17 ms]
+  Passed PolicyFramework.Tests.Inventory.NegativeStockPolicyTests.PolicyName_MatchesConvention [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.IntercompanyPartnerValidationPolicyTests.EvaluateAsync_IntercompanyCaseInsensitiveMatch_Fails [< 1 ms]
+  Passed PolicyFramework.Tests.Inventory.AdjustmentReasonMandatoryPolicyTests.EvaluateAsync_ExactlyAtThreshold_RequiresReason [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.FutureDatePostingPolicyTests.EvaluateAsync_TodaysDate_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.CostCenterMandatoryPolicyTests.EvaluateAsync_RequiredAndEmpty_Fails [1 ms]
+  Passed PolicyFramework.Tests.Posting.IntercompanyPartnerValidationPolicyTests.EvaluateAsync_IntercompanyWithNoPartnerCode_Fails [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.CostCenterMandatoryPolicyTests.EvaluateAsync_NotRequiredAndEmpty_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.IntercompanyPartnerValidationPolicyTests.EvaluateAsync_IntercompanyWithSameCompanyCode_Fails [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.BalancedEntryPolicyTests.EvaluateAsync_ImbalancedEntry_ReturnsFailure(debit: 5000, credit: 4999) [2 ms]
+  Passed PolicyFramework.Tests.Accounting.CostCenterMandatoryPolicyTests.EvaluateAsync_RequiredAndWhitespace_Fails [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.IntercompanyPartnerValidationPolicyTests.EvaluateAsync_IntercompanyWithEmptyPartnerCode_Fails [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.BalancedEntryPolicyTests.EvaluateAsync_ImbalancedEntry_ReturnsFailure(debit: 0, credit: 100) [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.BalancedEntryPolicyTests.EvaluateAsync_ImbalancedEntry_ReturnsFailure(debit: 1000, credit: 900) [< 1 ms]
+  Passed PolicyFramework.Tests.Accounting.CostCenterMandatoryPolicyTests.EvaluateAsync_RequiredAndProvided_Passes [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.BalancedEntryPolicyTests.EvaluateAsync_BalancedEntry_ReturnsSuccess(debit: 1000, credit: 1000) [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.BalancedEntryPolicyTests.EvaluateAsync_BalancedEntry_ReturnsSuccess(debit: 5000.5, credit: 5000.5) [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.BalancedEntryPolicyTests.EvaluateAsync_BalancedEntry_ReturnsSuccess(debit: 1000, credit: 999.99) [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.BalancedEntryPolicyTests.EvaluateAsync_Violation_ContainsDebitCreditInMetadata [< 1 ms]
+  Passed PolicyFramework.Tests.Posting.BalancedEntryPolicyTests.Order_IsLowestInPipeline [< 1 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_FaultingPolicy_PipelineContinuesOtherPolicies_WhenCollectAll [56 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_AllPoliciesPass_ReturnsSuccess [1 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.AggregatedResult_PoliciesEvaluated_IsCorrect [2 ms]
+[xUnit.net 00:00:00.57]       System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]'.
+[xUnit.net 00:00:00.57]       Stack Trace:
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.57]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.57]         E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Accounting\AccountingPolicyTests.cs(274,0): at PolicyFramework.Tests.Accounting.AccountingPipelineIntegrationTests.Pipeline_BlockedAccount_CollectsAllViolations()
+[xUnit.net 00:00:00.57]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:00.57]       System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]'.
+[xUnit.net 00:00:00.57]       Stack Trace:
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.57]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+[xUnit.net 00:00:00.57]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.58]         E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Accounting\AccountingPolicyTests.cs(297,0): at PolicyFramework.Tests.Accounting.AccountingPipelineIntegrationTests.Pipeline_AllPoliciesPass_ReturnsSuccess()
+[xUnit.net 00:00:00.58]         --- End of stack trace from previous location ---
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_WarningsDoNotCauseFailure [1 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_NoPoliciesRegistered_ReturnsSuccess [1 ms]
+  Failed PolicyFramework.Tests.Accounting.AccountingPipelineIntegrationTests.Pipeline_BlockedAccount_CollectsAllViolations [48 ms]
+  Error Message:
+   System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]'.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at PolicyFramework.Tests.Accounting.AccountingPipelineIntegrationTests.Pipeline_BlockedAccount_CollectsAllViolations() in E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Accounting\AccountingPolicyTests.cs:line 274
+--- End of stack trace from previous location ---
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_FaultingPolicy_DoesNotCrashPipeline [2 ms]
+  Failed PolicyFramework.Tests.Accounting.AccountingPipelineIntegrationTests.Pipeline_AllPoliciesPass_ReturnsSuccess [1 ms]
+  Error Message:
+   System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]'.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at PolicyFramework.Tests.Accounting.AccountingPipelineIntegrationTests.Pipeline_AllPoliciesPass_ReturnsSuccess() in E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Accounting\AccountingPolicyTests.cs:line 297
+--- End of stack trace from previous location ---
+  Passed PolicyFramework.Tests.Core.DependencyInjectionTests.AddPoliciesFromAssemblies_RegistersAllAccountingPolicies [47 ms]
+  Passed PolicyFramework.Tests.Core.DependencyInjectionTests.AddPoliciesFromAssemblies_RegistersAllInventoryPolicies [1 ms]
+  Passed PolicyFramework.Tests.Core.DependencyInjectionTests.AddPolicy_WithFactory_RegistersParameterisedPolicy [1 ms]
+[xUnit.net 00:00:00.58]       System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]'.
+[xUnit.net 00:00:00.58]       Stack Trace:
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.58]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+[xUnit.net 00:00:00.58]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.58]         E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs(101,0): at PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Inventory_ValidAdjustment_Succeeds()
+[xUnit.net 00:00:00.58]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:00.59]       System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]'.
+[xUnit.net 00:00:00.59]       Stack Trace:
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.59]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.59]         E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs(150,0): at PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Accounting_ActiveAccountWithCostCenter_Succeeds()
+[xUnit.net 00:00:00.59]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:00.59]       System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]'.
+[xUnit.net 00:00:00.59]       Stack Trace:
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.59]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.59]         E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs(62,0): at PolicyFramework.Tests.Core.DependencyInjectionTests.AddPolicyFramework_ResolvesExecutorForAllContextTypes()
+[xUnit.net 00:00:00.59]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+[xUnit.net 00:00:00.59]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.59]       System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]'.
+[xUnit.net 00:00:00.59]       Stack Trace:
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.59]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.59]         E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs(186,0): at PolicyFramework.Tests.Core.DependencyInjectionTests.AddPolicyFramework_CalledMultipleTimes_DoesNotDuplicate()
+[xUnit.net 00:00:00.59]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+[xUnit.net 00:00:00.59]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.59]       System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Posting.PostingContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Posting.PostingContext]'.
+[xUnit.net 00:00:00.59]       Stack Trace:
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.59]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+[xUnit.net 00:00:00.59]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.59]         E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs(124,0): at PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Posting_BalancedOpenPeriod_Succeeds()
+[xUnit.net 00:00:00.59]         --- End of stack trace from previous location ---
+  Passed PolicyFramework.Tests.Core.DependencyInjectionTests.AddPoliciesFromAssemblies_RegistersAllPostingPolicies [1 ms]
+  Failed PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Inventory_ValidAdjustment_Succeeds [1 ms]
+  Error Message:
+   System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]'.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Inventory_ValidAdjustment_Succeeds() in E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs:line 101
+--- End of stack trace from previous location ---
+  Failed PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Accounting_ActiveAccountWithCostCenter_Succeeds [1 ms]
+  Error Message:
+   System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Accounting.AccountAssignmentContext]'.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Accounting_ActiveAccountWithCostCenter_Succeeds() in E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs:line 150
+--- End of stack trace from previous location ---
+  Failed PolicyFramework.Tests.Core.DependencyInjectionTests.AddPolicyFramework_ResolvesExecutorForAllContextTypes [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]'.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at PolicyFramework.Tests.Core.DependencyInjectionTests.AddPolicyFramework_ResolvesExecutorForAllContextTypes() in E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs:line 62
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed PolicyFramework.Tests.Core.DependencyInjectionTests.AddPolicyFramework_CalledMultipleTimes_DoesNotDuplicate [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Inventory.InventoryAdjustmentContext]'.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at PolicyFramework.Tests.Core.DependencyInjectionTests.AddPolicyFramework_CalledMultipleTimes_DoesNotDuplicate() in E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs:line 186
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Posting_BalancedOpenPeriod_Succeeds [1 ms]
+  Error Message:
+   System.InvalidOperationException : Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger`1[PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Posting.PostingContext]]' while attempting to activate 'PolicyFramework.Core.Execution.PolicyExecutor`1[PolicyFramework.Modules.Posting.PostingContext]'.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot, Boolean throwOnConstraintViolation)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at PolicyFramework.Tests.Core.DependencyInjectionTests.FullPipeline_Posting_BalancedOpenPeriod_Succeeds() in E:\Sources\repos\SamSoft.PolicyFramework\ErpPolicyFramework\tests\PolicyFramework.Tests\Core\DependencyInjectionTests.cs:line 124
+--- End of stack trace from previous location ---
+  Passed PolicyFramework.Tests.Core.DependencyInjectionTests.AddPolicy_Generic_RegistersPolicy [3 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_ParallelTier_ProducesSameResultsAsSequential [23 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_RunsPoliciesInAscendingOrder [1 ms]
+[xUnit.net 00:00:00.62]   Finished:    PolicyFramework.Tests
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_CollectAll_RunsAllPoliciesEvenAfterFailure [1 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_FailFast_StopsPipelineAfterFirstBlockingViolation [5 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_BlockingViolationsAreCorrectlySeparated [< 1 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.AggregatedResult_PoliciesFailed_CountsOnlyBlockingFailures [< 1 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_SkipsDisabledPolicies [2 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_ThrowOnFailure_ThrowsPolicyViolationException [4 ms]
+  Passed PolicyFramework.Tests.Core.PolicyExecutorTests.ExecuteAsync_ThrowOnFailure_ExceptionCarriesAggregatedResult [2 ms]
+
+Total tests: 97
+     Passed: 90
+     Failed: 7
+ Total time: 1.6776 Seconds

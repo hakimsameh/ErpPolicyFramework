@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>12</LangVersion>
+    <RootNamespace>PolicyFramework.Modules.Sales</RootNamespace>
+    <AssemblyName>PolicyFramework.Modules.Sales</AssemblyName>
+    <Description>ERP Policy Framework — Sales Module (Invoice and Return Policies)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PolicyFramework.Core\PolicyFramework.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Required for internal policies: DI container in Host/Tests must instantiate them -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="PolicyFramework.Host" />
+    <InternalsVisibleTo Include="PolicyFramework.Tests" />
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,31 @@
+namespace PolicyFramework.Core.Abstractions;
+
+/// <summary>
+/// Entry-point for executing all registered policies for a given context type.
+/// Registered as an open-generic service — resolved automatically by DI for any TContext.
+///
+/// Consumers depend on this abstraction, never on the concrete executor.
+/// </summary>
+/// <typeparam name="TContext">The policy context type to evaluate.</typeparam>
+public interface IPolicyExecutor<TContext> where TContext : IPolicyContext
+{
+    /// <summary>
+    /// Discovers all <see cref="IPolicy{TContext}"/> implementations registered in DI,
+    /// filters by <see cref="IPolicy{TContext}.IsEnabled"/>,
+    /// sorts by <see cref="IPolicy{TContext}.Order"/> (ascending),
+    /// and executes them according to <paramref name="options"/>.
+    /// </summary>
+    /// <param name="context">The evaluation context.</param>
+    /// <param name="options">
+    ///     Execution options. Pass null to use <see cref="PolicyExecutionOptions.Default"/>.
+    /// </param>
+    /// <param name="cancellationToken">Propagated to each policy evaluation.</param>
+    /// <returns>
+    ///     An <see cref="AggregatedPolicyResult"/> summarizing all evaluated policies.
+    ///     Never throws (unless <see cref="PolicyExecutionOptions.ThrowOnFailure"/> is true).
+    /// </returns>
+    Task<AggregatedPolicyResult> ExecuteAsync(
+        TContext context,
+        PolicyExecutionOptions? options = null,
+        CancellationToken cancellationToken = default);
+}

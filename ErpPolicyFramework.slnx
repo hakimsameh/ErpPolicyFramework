@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/docs/">
+    <File Path="docs/API_AT_A_GLANCE.md" />
+    <File Path="docs/COMMON_TASKS.md" />
+    <File Path="docs/GETTING_STARTED.md" />
+    <File Path="docs/QUICK_REFERENCE.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+  </Folder>
+  <Project Path="src/PolicyFramework.Core/PolicyFramework.Core.csproj" />
+  <Project Path="src/PolicyFramework.Host/PolicyFramework.Host.csproj" />
+  <Project Path="src/PolicyFramework.Modules.Accounting/PolicyFramework.Modules.Accounting.csproj" />
+  <Project Path="src/PolicyFramework.Modules.Inventory/PolicyFramework.Modules.Inventory.csproj" />
+  <Project Path="src/PolicyFramework.Modules.Posting/PolicyFramework.Modules.Posting.csproj" />
+  <Project Path="src/PolicyFramework.Modules.Sales/PolicyFramework.Modules.Sales.csproj" />
+  <Project Path="tests/PolicyFramework.Tests/PolicyFramework.Tests.csproj" />
+</Solution>
