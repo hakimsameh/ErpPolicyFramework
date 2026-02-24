@@ -29,3 +29,29 @@ public interface IPolicyExecutor<TContext> where TContext : IPolicyContext
         PolicyExecutionOptions? options = null,
         CancellationToken cancellationToken = default);
 }
+/// <summary>
+/// Non-generic policy executor allowing a single injection point for multiple context types.
+/// Delegates to <see cref="IPolicyExecutor{TContext}"/> based on the context type at the call site.
+/// Prefer injecting <see cref="IPolicyExecutor{TContext}"/> directly when only one context type is used.
+/// </summary>
+public interface IPolicyExecutor
+{
+    /// <summary>
+    /// Executes all registered policies for the given context type.
+    /// The context type is inferred from the argument — no reflection is used.
+    /// </summary>
+    /// <typeparam name="TContext">The policy context type.</typeparam>
+    /// <param name="context">The evaluation context.</param>
+    /// <param name="options">
+    ///     Execution options. Pass null to use <see cref="PolicyExecutionOptions.Default"/>.
+    /// </param>
+    /// <param name="cancellationToken">Propagated to each policy evaluation.</param>
+    /// <returns>
+    ///     An <see cref="AggregatedPolicyResult"/> summarizing all evaluated policies.
+    /// </returns>
+    Task<AggregatedPolicyResult> ExecuteAsync<TContext>(
+        TContext context,
+        PolicyExecutionOptions? options = null,
+        CancellationToken cancellationToken = default)
+        where TContext : IPolicyContext;
+}

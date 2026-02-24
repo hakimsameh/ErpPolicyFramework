@@ -8,7 +8,8 @@ All public types you'll use. For examples, see [QUICK_REFERENCE.md](QUICK_REFERE
 
 | Type | Purpose |
 |------|---------|
-| `IPolicyExecutor<TContext>` | Inject this. Call `ExecuteAsync(context)` to run all policies. |
+| `IPolicyExecutor<TContext>` | Type-safe executor per context. Call `ExecuteAsync(context)`. Prefer when using one context type. |
+| `IPolicyExecutor` | Non-generic executor. Same `ExecuteAsync(context)` — context type inferred at call site. Use when a single service handles multiple context types. |
 | `IPolicyContext` | Marker. Your context (e.g. `InventoryAdjustmentContext`) implements this. |
 | `IPolicy<TContext>` | Policy contract. Extend `PolicyBase<TContext>` to implement. |
 | `AggregatedPolicyResult` | Returned by `ExecuteAsync`. Has `IsSuccess`, `BlockingViolations`, `AdvisoryViolations`. |

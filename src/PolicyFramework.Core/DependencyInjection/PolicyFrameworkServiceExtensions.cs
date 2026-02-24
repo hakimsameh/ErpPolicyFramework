@@ -38,6 +38,7 @@ public static class PolicyFrameworkServiceExtensions
         // Open-generic registration: IPolicyExecutor<T> → PolicyExecutor<T>
         // TryAdd ensures this call is idempotent (safe to call from multiple modules).
         services.TryAddTransient(typeof(IPolicyExecutor<>), typeof(PolicyExecutor<>));
+        services.TryAddTransient<IPolicyExecutor, PolicyExecutorDispatcher>();
         return services;
     }
 

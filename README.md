@@ -45,9 +45,11 @@ dotnet test ErpPolicyFramework.sln
 |---------|------------|
 | **Context** | Data object (e.g. `InventoryAdjustmentContext`) with everything a policy needs to validate |
 | **Policy** | One business rule (e.g. "no negative stock"). Auto-registered from assemblies |
-| **Executor** | `IPolicyExecutor<TContext>` — call `ExecuteAsync(context)` to run all policies |
+| **Executor** | `IPolicyExecutor<TContext>` or `IPolicyExecutor` — call `ExecuteAsync(context)` to run all policies |
 | **Result** | `AggregatedPolicyResult` — `IsSuccess`, `BlockingViolations`, `AdvisoryViolations` |
 | **Violation** | One failed rule: `Code`, `Message`, `Severity`, `Field` |
+
+**Executor options:** Inject `IPolicyExecutor<TContext>` for type-safe, single-context usage. Inject non-generic `IPolicyExecutor` for one injection point when handling multiple context types (e.g. Inventory + Posting in the same service).
 
 ---
 
@@ -79,7 +81,8 @@ ErpPolicyFramework/
 │   │   │   ├── IPolicyExecutor.cs             ← Executor contract + options + strategy enum
 │   │   │   └── PolicyOrderingConventions.cs   ← Order range constants (documentation)
 │   │   ├── Execution/
-│   │   │   └── PolicyExecutor.cs              ← Default pipeline executor
+│   │   │   ├── PolicyExecutor.cs               ← Default pipeline executor (generic)
+│   │   │   └── PolicyExecutorDispatcher.cs    ← Non-generic facade; delegates to generic executor
 │   │   └── DependencyInjection/
 │   │       └── PolicyFrameworkServiceExtensions.cs  ← AddPolicyFramework(), scanning
 │   │
@@ -129,8 +132,8 @@ ErpPolicyFramework/
 └── tests/
     └── PolicyFramework.Tests/
         ├── Core/
-        │   ├── PolicyExecutorTests.cs         ← 18 executor unit tests
-        │   └── DependencyInjectionTests.cs    ← 12 DI integration tests
+        │   ├── PolicyExecutorTests.cs          ← Executor unit tests
+        │   └── DependencyInjectionTests.cs    ← DI + non-generic executor integration tests
         ├── Inventory/
         │   └── InventoryPolicyTests.cs        ← 20 policy unit tests
         ├── Posting/

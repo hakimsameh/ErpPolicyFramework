@@ -9,8 +9,11 @@ For a full pipeline guide with all scenarios, see [PIPELINE_GUIDE.md](PIPELINE_G
 ## 1. Execute Policies (Basic)
 
 ```csharp
-// Inject
+// Inject — generic (one context type; type-safe)
 public MyService(IPolicyExecutor<InventoryAdjustmentContext> _policies) { }
+
+// Inject — non-generic (multiple context types in one service)
+public MyMultiContextService(IPolicyExecutor _policies) { }
 
 // Execute with default options (collects all violations)
 var result = await _policies.ExecuteAsync(context);
@@ -20,6 +23,12 @@ if (result.IsSuccess)
 else
     foreach (var v in result.BlockingViolations)
         Console.WriteLine($"[{v.Code}] {v.Message}");
+```
+
+**Non-generic usage:** With `IPolicyExecutor`, you can execute for different context types in the same service:
+```csharp
+var inventoryResult = await _policies.ExecuteAsync(inventoryContext);
+var postingResult  = await _policies.ExecuteAsync(postingContext);
 ```
 
 ---

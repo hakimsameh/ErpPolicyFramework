@@ -9,7 +9,7 @@ Complete audit of tested scenarios vs. available functionality.
 | Test File | Tests | Covers |
 |-----------|-------|--------|
 | PolicyExecutorTests.cs | 18 | Executor: ordering, disabled, CollectAll, FailFast, resilience, ThrowOnFailure, parallel, empty pipeline |
-| DependencyInjectionTests.cs | 12 | DI: assembly scan, executor resolution, manual registration, full pipeline, idempotency |
+| DependencyInjectionTests.cs | 17 | DI: assembly scan, executor resolution, non-generic `IPolicyExecutor`, manual registration, full pipeline, idempotency |
 | InventoryPolicyTests.cs | ~20 | NegativeStock, AdjustmentReason, MaxStockLevel, ReorderPointAlert |
 | PostingPolicyTests.cs | ~20 | BalancedEntry, OpenFiscalPeriod, FutureDatePosting, IntercompanyPartner |
 | AccountingPolicyTests.cs | ~18 | ActiveAccount, CostCenter, CreditLimit, DualControl, pipeline integration |

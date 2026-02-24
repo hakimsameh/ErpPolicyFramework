@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Microsoft.Extensions.Logging;
 using PolicyFramework.Core.Abstractions;
 
@@ -18,7 +19,7 @@ namespace PolicyFramework.Core.Execution;
 public sealed class PolicyExecutor<TContext> : IPolicyExecutor<TContext>
     where TContext : IPolicyContext
 {
-    private readonly IReadOnlyList<IPolicy<TContext>> _orderedPolicies;
+    private readonly ReadOnlyCollection<IPolicy<TContext>> _orderedPolicies;
     private readonly ILogger<PolicyExecutor<TContext>> _logger;
 
     /// <summary>
@@ -37,7 +38,7 @@ public sealed class PolicyExecutor<TContext> : IPolicyExecutor<TContext>
         _logger = logger;
 
         _logger.LogDebug(
-            "PolicyExecutor<{Context}> initialised with {Count} registered policies: [{Names}]",
+            "PolicyExecutor<{Context}> initialized with {Count} registered policies: [{Names}]",
             typeof(TContext).Name,
             _orderedPolicies.Count,
             string.Join(", ", _orderedPolicies.Select(p => p.PolicyName)));
@@ -84,7 +85,7 @@ public sealed class PolicyExecutor<TContext> : IPolicyExecutor<TContext>
     // =========================================================================
 
     private async Task<List<PolicyResult>> ExecuteSequentiallyAsync(
-        IList<IPolicy<TContext>> policies,
+        List<IPolicy<TContext>> policies,
         TContext context,
         PolicyExecutionOptions options,
         CancellationToken ct)

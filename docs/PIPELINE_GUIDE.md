@@ -310,13 +310,17 @@ Disabled policies do not appear in `PoliciesEvaluated`. No need for `BypassedPol
 **Behaviour:** Each context type has its own pipeline. `IPolicyExecutor<SalesInvoiceContext>` runs invoice policies only; `IPolicyExecutor<SalesReturnContext>` runs return policies only.
 
 ```csharp
-// Invoice pipeline
+// Option A: Generic executors (one per context)
 var invoiceExecutor = sp.GetRequiredService<IPolicyExecutor<SalesInvoiceContext>>();
 var invoiceResult   = await invoiceExecutor.ExecuteAsync(invoiceContext);
 
-// Return pipeline (completely separate)
 var returnExecutor = sp.GetRequiredService<IPolicyExecutor<SalesReturnContext>>();
 var returnResult   = await returnExecutor.ExecuteAsync(returnContext);
+
+// Option B: Non-generic executor (one injection for multiple context types)
+var executor = sp.GetRequiredService<IPolicyExecutor>();
+var invoiceResult = await executor.ExecuteAsync(invoiceContext);
+var returnResult  = await executor.ExecuteAsync(returnContext);
 ```
 
 **Context → Pipeline mapping:**

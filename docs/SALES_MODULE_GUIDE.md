@@ -9,11 +9,13 @@
 
 | Document Type   | Context Type          | Executor                            | Policies run              |
 |-----------------|----------------------|-------------------------------------|---------------------------|
-| **Sales Invoice** | `SalesInvoiceContext`  | `IPolicyExecutor<SalesInvoiceContext>` | Invoice policies only    |
-| **Sales Return**  | `SalesReturnContext`   | `IPolicyExecutor<SalesReturnContext>`  | Return policies only     |
+| **Sales Invoice** | `SalesInvoiceContext`  | `IPolicyExecutor<SalesInvoiceContext>` or `IPolicyExecutor` | Invoice policies only    |
+| **Sales Return**  | `SalesReturnContext`   | `IPolicyExecutor<SalesReturnContext>` or `IPolicyExecutor` | Return policies only     |
 
 When you call `_invoiceExecutor.ExecuteAsync(invoiceContext)`, **only** invoice policies run.  
 When you call `_returnExecutor.ExecuteAsync(returnContext)`, **only** return policies run.
+
+**Tip:** If your service handles both Invoice and Return, inject non-generic `IPolicyExecutor` once — then call `ExecuteAsync(invoiceContext)` and `ExecuteAsync(returnContext)` as needed.
 
 ---
 
@@ -131,8 +133,7 @@ public class SalesReturnService(
 
 **Different document types → different contexts → different executors → different policies.**
 
-You inject both executors where needed:
-
+**Option A — Generic executors (type-safe):**
 ```csharp
 public MyController(
     IPolicyExecutor<SalesInvoiceContext> _invoicePolicies,
@@ -140,6 +141,15 @@ public MyController(
 {
     // Use _invoicePolicies for invoice flows
     // Use _returnPolicies for return flows
+}
+```
+
+**Option B — Non-generic executor (one injection):**
+```csharp
+public MyController(IPolicyExecutor _policies)
+{
+    var invoiceResult = await _policies.ExecuteAsync(invoiceContext);
+    var returnResult  = await _policies.ExecuteAsync(returnContext);
 }
 ```
 

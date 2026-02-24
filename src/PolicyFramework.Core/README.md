@@ -35,6 +35,17 @@ public class MyService(IPolicyExecutor<MyContext> _policies)
         return Result.Ok();
     }
 }
+
+// Non-generic option: inject IPolicyExecutor when handling multiple context types
+public class MyMultiContextService(IPolicyExecutor _policies)
+{
+    public async Task<Result> ProcessAsync(MyContext a, OtherContext b)
+    {
+        var r1 = await _policies.ExecuteAsync(a);
+        var r2 = await _policies.ExecuteAsync(b);
+        return r1.IsSuccess && r2.IsSuccess ? Result.Ok() : Result.Fail(...);
+    }
+}
 ```
 
 ## Add your own policy

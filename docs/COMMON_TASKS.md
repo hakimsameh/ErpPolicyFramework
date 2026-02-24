@@ -33,10 +33,14 @@ For a complete pipeline walkthrough with all execution scenarios and examples, s
 
 **Steps:**
 
-1. Inject `IPolicyExecutor<TContext>` where TContext matches your domain (e.g. `InventoryAdjustmentContext`).
+1. Inject `IPolicyExecutor<TContext>` where TContext matches your domain (e.g. `InventoryAdjustmentContext`). Alternatively, inject non-generic `IPolicyExecutor` when the same service handles multiple context types.
 2. Build a context object with your request data.
 3. Call `ExecuteAsync(context)`.
 4. Check `result.IsSuccess` and handle violations.
+
+**Executor choice:**
+- **`IPolicyExecutor<TContext>`** — Type-safe, one context per service. Recommended for most cases.
+- **`IPolicyExecutor`** (non-generic) — One injection point for multiple context types (e.g. Inventory + Posting). Same API: `ExecuteAsync(context)`; context type is inferred at the call site.
 
 **Example:**
 

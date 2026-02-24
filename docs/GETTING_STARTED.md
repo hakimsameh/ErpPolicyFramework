@@ -109,9 +109,11 @@ public class InventoryService(IPolicyExecutor<InventoryAdjustmentContext> _polic
 |---|---------|----------------|
 | 1 | **Context** | A data object (e.g. `InventoryAdjustmentContext`) holding everything policies need to validate |
 | 2 | **Policy** | One rule (e.g. "no negative stock"). Policies are auto-registered; you rarely touch them |
-| 3 | **Executor** | `IPolicyExecutor<TContext>` — you call `ExecuteAsync(context)` and get a result |
+| 3 | **Executor** | `IPolicyExecutor<TContext>` or `IPolicyExecutor` — call `ExecuteAsync(context)` to get a result |
 | 4 | **Result** | `AggregatedPolicyResult` — `IsSuccess`, `BlockingViolations`, `AdvisoryViolations` |
 | 5 | **Violation** | One failed rule: `Code`, `Message`, `Severity`, `Field` |
+
+**Executor choice:** Use `IPolicyExecutor<TContext>` when you work with a single context type (recommended). Use non-generic `IPolicyExecutor` when one service handles multiple context types — inject once, call `ExecuteAsync(inventoryContext)` or `ExecuteAsync(postingContext)` as needed.
 
 ---
 
