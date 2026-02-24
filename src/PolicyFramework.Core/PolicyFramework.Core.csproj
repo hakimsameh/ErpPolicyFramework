@@ -9,6 +9,7 @@
     <AssemblyName>PolicyFramework.Core</AssemblyName>
 
     <!-- NuGet package -->
+    <Version>1.1.0</Version>
     <PackageId>PolicyFramework.Core</PackageId>
     <Description>Generic ERP Policy Framework — Core Abstractions and Execution Engine. Run business-rule pipelines before saving data. Pluggable policies for inventory, posting, accounting, and more.</Description>
     <PackageTags>erp;policy;validation;business-rules;ddd;clean-architecture;net8</PackageTags>

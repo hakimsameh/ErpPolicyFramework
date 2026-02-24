@@ -53,10 +53,23 @@ dotnet test ErpPolicyFramework.sln
 
 ---
 
+## Benchmarks (Generic vs Non-Generic Executor)
+
+```bash
+dotnet run -c Release --project benchmarks/PolicyFramework.Benchmarks
+```
+
+Compares `IPolicyExecutor<TContext>` vs `IPolicyExecutor` performance. See [benchmarks/README.md](benchmarks/README.md).
+
+---
+
 ## Solution Structure
 
 ```
 ErpPolicyFramework/
+│
+├── benchmarks/
+│   └── PolicyFramework.Benchmarks/     ← Generic vs Non-Generic executor benchmarks
 │
 ├── docs/                                     ← Documentation (start here if new)
 │   ├── GETTING_STARTED.md                    ← Step-by-step for beginners

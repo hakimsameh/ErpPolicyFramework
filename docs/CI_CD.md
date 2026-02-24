@@ -18,8 +18,10 @@
 
 | Workflow | Trigger | What happens |
 |----------|---------|--------------|
-| **CI** | Push or PR to `main` / `master` | Build + test |
+| **CI** | Push or PR to `main` / `master` | Build + test (does **not** publish) |
 | **CD** | Push tag `v*` (e.g. `v1.0.0`) **or** publish a Release | Build, test, pack, upload artifacts; publish to NuGet.org when `NUGET_API_KEY` is set |
+
+**Important:** Pushing commits to `main` runs **CI only**, not CD. To publish to NuGet, you must push a version tag or create a Release.
 
 ## Publish PolicyFramework.Core to NuGet.org
 
@@ -39,3 +41,14 @@ CD runs → packs → publishes to NuGet.org (if `NUGET_API_KEY` is set).
 3. **Publish release**
 
 CD runs → packs → publishes to NuGet.org → attaches `.nupkg` files to the release.
+
+---
+
+## Troubleshooting: NuGet Not Publishing
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| Publish job is skipped | CD only runs on tag push (`v*`) or Release publish | Push a tag: `git tag v1.0.0 && git push origin v1.0.0` or create a GitHub Release |
+| "NUGET_API_KEY secret is not set" | Secret missing or misnamed | Add `NUGET_API_KEY` in **Settings → Secrets and variables → Actions** |
+| `dotnet nuget push` fails with 403 | Invalid or expired API key | Regenerate key at [nuget.org/account/apikeys](https://www.nuget.org/account/apikeys), update the secret |
+| Duplicate package version | Same version already on NuGet.org | Use a new version (e.g. `v1.0.1`); or workflow uses `--skip-duplicate` so it will not fail |

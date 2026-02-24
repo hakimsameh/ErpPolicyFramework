@@ -9,6 +9,7 @@
     <File Path=".editorconfig" />
     <File Path="Directory.Build.props" />
   </Folder>
+  <Project Path="benchmarks/PolicyFramework.Benchmarks/PolicyFramework.Benchmarks.csproj" />
   <Project Path="src/PolicyFramework.Core/PolicyFramework.Core.csproj" />
   <Project Path="src/PolicyFramework.Host/PolicyFramework.Host.csproj" />
   <Project Path="src/PolicyFramework.Modules.Accounting/PolicyFramework.Modules.Accounting.csproj" />
