@@ -13,6 +13,7 @@
 | **Understand the pipeline** (CollectAll, FailFast, parallel, etc.) | [docs/PIPELINE_GUIDE.md](docs/PIPELINE_GUIDE.md) |
 | **Look up an API** (types, methods, properties) | [docs/API_AT_A_GLANCE.md](docs/API_AT_A_GLANCE.md) |
 | **Apply different policies per document type** (Invoice vs Return) | [docs/SALES_MODULE_GUIDE.md](docs/SALES_MODULE_GUIDE.md) |
+| **Create a GitHub Release** | [docs/RELEASING.md](docs/RELEASING.md) |
 
 All docs are written for junior developers — no prior policy-framework experience needed.
 
@@ -77,7 +78,8 @@ ErpPolicyFramework/
 │   ├── COMMON_TASKS.md                       ← How to do X (all functions)
 │   ├── PIPELINE_GUIDE.md                     ← Pipeline execution (all scenarios + examples)
 │   ├── API_AT_A_GLANCE.md                    ← Type/method quick lookup
-│   └── SALES_MODULE_GUIDE.md                 ← Invoice vs Return policies (separate contexts)
+│   ├── SALES_MODULE_GUIDE.md                 ← Invoice vs Return policies (separate contexts)
+│   └── RELEASING.md                          ← How to create GitHub Releases
 │
 ├── .editorconfig                             ← Code style and formatting
 ├── Directory.Build.props                     ← Shared MSBuild properties

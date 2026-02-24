@@ -34,13 +34,18 @@ git push origin v1.0.0
 
 CD runs → packs → publishes to NuGet.org (if `NUGET_API_KEY` is set).
 
-**Option B: GitHub Release**
+**Option B: GitHub Release (recommended)**
 
-1. **Releases** → **Create a new release**
-2. Tag: `v1.0.0`
-3. **Publish release**
+1. Update [CHANGELOG.md](../CHANGELOG.md) with the new version
+2. Commit, push to `main`
+3. **Releases** → **Create a new release**
+4. Tag: `v1.1.0` (or create new tag on publish)
+5. Description: copy the version section from CHANGELOG.md
+6. **Publish release**
 
-CD runs → packs → publishes to NuGet.org → attaches `.nupkg` files to the release.
+CD runs → build, test, pack → publishes to NuGet.org → attaches `.nupkg` files to the release.
+
+Full process: [docs/RELEASING.md](RELEASING.md)
 
 ---
 
